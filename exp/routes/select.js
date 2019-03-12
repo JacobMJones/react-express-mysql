@@ -4,12 +4,11 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 var connection = req.app.get('connection')
-var toReturn;
-
- connection.query("SELECT * FROM cats", function(error, results, fields) {
+console.log(req.query)
+var table = req.query.table
+ connection.query(`SELECT name FROM ${table}`, function(error, results, fields) {
     if (error) throw error;
- 
-    res.send({result:results[0]});
+    res.send({results});
   });
 
  
