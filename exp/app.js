@@ -11,7 +11,7 @@ app.use(cors());
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "***",
+  password: "horsehorse",
   database: "pets"
 });
 
@@ -21,10 +21,6 @@ connection.connect(function(err) {
 });
 
 app.set('connection', connection)
-// connection.query("SELECT * FROM cats", function(error, results, fields) {
-//   if (error) throw error;
-//   console.log("The solution is: ", results);
-// });
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
